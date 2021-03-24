@@ -16,9 +16,6 @@ public class UserRepository {
         this.users = users;
     }
 
-    // ToDo: не стоит передавать каждый раз новый пустой список
-    // ToDo: дальше идти в пункт 4 + напомнить, что значит @Autowired и проверить, с каким именем бин хэшмапы создается
-
     public List<Authorities> getAuthorities(String user, String password) {
 
         if (users.get(user) == null || !users.get(user).equals(password)) {
