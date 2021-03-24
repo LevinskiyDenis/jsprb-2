@@ -20,12 +20,9 @@ public class AuthorizationService {
     }
 
     public List<Authorities> getAuthorities(String user, String password) {
-        try {
-            if (isEmpty(user) || isEmpty(password)) {
-                throw new InvalidCredentials("User name or password is empty");
-            }
-        } catch (InvalidCredentials e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+
+        if (isEmpty(user) || isEmpty(password)) {
+            throw new InvalidCredentials("User name or password is empty");
         }
 
         List<Authorities> userAuthorities = repository.getAuthorities(user, password);

@@ -1,4 +1,4 @@
-GET http://localhost:8080/authorize?user=&pass=pass123
+GET http://localhost:8080/authorize?user=ale&pass=pass123
 Accept: application/json
 
 ###

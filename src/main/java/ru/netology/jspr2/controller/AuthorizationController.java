@@ -3,6 +3,7 @@ package ru.netology.jspr2.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.netology.jspr2.exception.InvalidCredentials;
 import ru.netology.jspr2.exception.UnauthorizedUser;
 import ru.netology.jspr2.repository.Authorities;
 import ru.netology.jspr2.service.AuthorizationService;
@@ -27,5 +28,10 @@ public class AuthorizationController {
     @ExceptionHandler(UnauthorizedUser.class)
     public ResponseEntity<String> handleUnauthorizedUser(UnauthorizedUser e){
         return new ResponseEntity<>("Exception: " + e.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(InvalidCredentials.class)
+    public ResponseEntity<String> handleInvalidCredentials(InvalidCredentials e){
+        return new ResponseEntity<>("Exception: " + e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
