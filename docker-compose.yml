@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+    frontend_server:
+        image: nginx
+        container_name: "nginx"
+        volumes:
+        - ./nginx/nginx.conf/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./nginx/html:/usr/share/nginx/html:ro
+        ports: 
+        - 80:80
+    app:
+        image: jsprb-2
+        container_name: "app"
+        depends_on:
+        - frontend_server
